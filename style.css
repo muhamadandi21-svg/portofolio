@@ -43,3 +43,14 @@ footer .brand span{color:#e4bd73!important}
 
 /* Album-first portfolio: respect hidden state despite grid display rules. */
 .event-cards[hidden],.gallery[hidden],.filters[hidden]{display:none!important}
+
+/* Album cover ratio and album-level controls */
+.event-card{height:auto;min-height:0;aspect-ratio:var(--album-ratio,3/2)}
+.album-admin-row{display:grid;grid-template-columns:100px minmax(120px,1fr) minmax(210px,1.2fr) auto auto auto;align-items:center;gap:12px;padding:14px;background:#111;margin:10px 0;border:1px solid #333}
+.album-admin-cover{width:100%;height:auto;min-height:0;object-fit:cover;aspect-ratio:3/2;background:#242321}
+.album-admin-controls{display:grid;gap:8px;min-width:200px}
+.album-admin-controls label{display:flex;flex-direction:column;gap:5px;color:#bbb;font-size:11px}
+.album-admin-controls select{width:100%;max-width:100%;padding:8px;background:#101010;color:#fff;border:1px solid #444}
+.album-admin-row button{padding:8px;background:none;color:#fff;border:1px solid #555;cursor:pointer;white-space:nowrap}
+.album-admin-row button:hover{border-color:var(--gold);color:var(--gold)}
+@media(max-width:850px){.album-admin-row{grid-template-columns:80px minmax(120px,1fr);align-items:start}.album-admin-controls{grid-column:1/-1}.album-admin-row>button{justify-self:start}}
