@@ -44,3 +44,20 @@ end $$;
 
 -- Security note: write policies allow authenticated accounts to manage events.
 -- If Supabase sign-up is enabled, restrict these write policies to the admin UID.
+
+-- Album cover display ratio (safe to run more than once)
+alter table public.portfolio_events
+  add column if not exists cover_ratio text not null default '3/2';
+
+do $$
+begin
+  if not exists (
+    select 1 from pg_constraint
+    where conrelid = 'public.portfolio_events'::regclass
+      and conname = 'portfolio_events_cover_ratio_check'
+  ) then
+    alter table public.portfolio_events
+      add constraint portfolio_events_cover_ratio_check
+      check (cover_ratio in ('1/1','4/5','3/2','4/3','16/9'));
+  end if;
+end $$;
