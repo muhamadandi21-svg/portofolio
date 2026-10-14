@@ -40,3 +40,6 @@ footer .brand span{color:#e4bd73!important}
 .event-back[hidden]{display:none}
 @media(max-width:760px){.event-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.event-card{min-height:190px}}
 @media(max-width:460px){.event-cards{grid-template-columns:1fr}.event-card{min-height:210px}}
+
+/* Album-first portfolio: respect hidden state despite grid display rules. */
+.event-cards[hidden],.gallery[hidden],.filters[hidden]{display:none!important}
