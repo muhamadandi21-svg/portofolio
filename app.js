@@ -1,7 +1,7 @@
 (() => {
 const $=id=>document.getElementById(id);$("year").textContent=new Date().getFullYear();
-$("menu").addEventListener("click",()=>$("nav").classList.toggle("open"));
-document.querySelectorAll("#nav a").forEach(a=>a.addEventListener("click",()=>$("nav").classList.remove("open")));
+$("menu").addEventListener("click",()=>{const opened=$("nav").classList.toggle("open");$("menu").setAttribute("aria-expanded",String(opened))});
+document.querySelectorAll("#nav a").forEach(a=>a.addEventListener("click",()=>{$("nav").classList.remove("open");$("menu").setAttribute("aria-expanded","false")}));
 function wireFilters(){document.querySelectorAll(".filters button").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filters button").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll("#gallery article").forEach(c=>c.style.display=b.dataset.filter==="all"||c.dataset.type===b.dataset.filter?"":"none")}))}
 wireFilters();
 if(!window.supabase||!window.SUPABASE_URL||!window.SUPABASE_ANON_KEY||window.SUPABASE_URL.includes("PASTE_"))return;
