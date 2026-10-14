@@ -54,3 +54,52 @@ footer .brand span{color:#e4bd73!important}
 .album-admin-row button{padding:8px;background:none;color:#fff;border:1px solid #555;cursor:pointer;white-space:nowrap}
 .album-admin-row button:hover{border-color:var(--gold);color:var(--gold)}
 @media(max-width:850px){.album-admin-row{grid-template-columns:80px minmax(120px,1fr);align-items:start}.album-admin-controls{grid-column:1/-1}.album-admin-row>button{justify-self:start}}
+
+
+/* Admin dashboard: clearer hierarchy, larger controls, mobile-friendly workflow */
+body:has(#dash){background:#0d0d0d;color:#f6f3ed}
+body:has(#dash) header{z-index:20;box-shadow:0 8px 28px #0006}
+body:has(#dash) header>a:last-child{font-size:13px;color:#e6c27d}
+body:has(#dash) .wrap{max-width:1180px;margin:34px auto 80px;padding:0 24px}
+body:has(#dash) .wrap>h1{font-size:clamp(34px,5vw,54px);line-height:1.1;margin:8px 0 12px;letter-spacing:-.04em}
+body:has(#dash) .wrap>.note{max-width:680px;color:#aaa}
+body:has(#dash) .panel{padding:clamp(18px,3vw,30px);background:linear-gradient(145deg,#191919,#131313);border:1px solid #ffffff16;border-radius:14px;margin:22px 0;box-shadow:0 12px 34px #0002;scroll-margin-top:105px}
+body:has(#dash) .panel h2{font-size:clamp(20px,2.5vw,27px);margin:0 0 10px;letter-spacing:-.025em}
+body:has(#dash) .panel h3{font-size:17px}
+body:has(#dash) .note{color:#a7a39b;font-size:13px;line-height:1.65}
+body:has(#dash) .form{gap:16px}
+body:has(#dash) .form label{font-size:13px;color:#d2cec5;gap:7px}
+body:has(#dash) .form input:not([type=color]):not([type=file]),body:has(#dash) .form select,body:has(#dash) .form textarea{width:100%;min-height:44px;padding:12px 13px;border-radius:8px;background:#0c0c0c;border:1px solid #393833;color:#f8f6f1;font:inherit;outline:none;transition:border-color .2s,box-shadow .2s}
+body:has(#dash) .form textarea{min-height:90px;resize:vertical}
+body:has(#dash) .form input:focus,body:has(#dash) .form select:focus,body:has(#dash) .form textarea:focus{border-color:#c5a46d;box-shadow:0 0 0 3px #c5a46d20}
+body:has(#dash) .form input[type=file]{width:100%;padding:14px;background:#101010;border:1px dashed #6a604c;border-radius:8px;color:#ccc}
+body:has(#dash) .form input[type=color]{width:100%;height:44px;background:#101010;border:1px solid #393833;border-radius:8px;padding:4px}
+body:has(#dash) .btn,body:has(#dash) .item button,body:has(#dash) .album-admin-row button{min-height:42px;padding:10px 15px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer}
+body:has(#dash) .btn{background:#c5a46d;color:#15120c;border:1px solid #c5a46d}
+body:has(#dash) .btn:hover{background:#e0c18d;color:#111}
+body:has(#dash) .btn:disabled,body:has(#dash) button:disabled{opacity:.5;cursor:wait}
+body:has(#dash) .status{display:block;margin-top:12px;padding:10px 12px;background:#c5a46d0d;border-left:2px solid #c5a46d;border-radius:0 7px 7px 0;line-height:1.6;overflow-wrap:anywhere}
+body:has(#dash) .dashboard-heading{align-items:center;padding:20px 0 8px}
+body:has(#dash) .dashboard-heading h2{margin:0;font-size:28px}
+body:has(#dash) .dashboard-heading .note{margin:5px 0 0}
+.admin-shortcuts{position:sticky;top:76px;z-index:15;display:flex;gap:8px;overflow-x:auto;padding:12px;margin:12px 0 16px;background:#121212ed;border:1px solid #ffffff14;border-radius:12px;backdrop-filter:blur(14px)}
+.admin-shortcuts a{flex:0 0 auto;padding:9px 13px;border-radius:7px;background:#ffffff08;border:1px solid #ffffff12;color:#e7e1d7;font-size:12px;font-weight:700;white-space:nowrap}
+.admin-shortcuts a:hover{background:#c5a46d18;border-color:#c5a46d;color:#f0ce8f}
+.admin-guide{padding:18px 22px;border:1px solid #c5a46d45;border-radius:12px;background:linear-gradient(120deg,#c5a46d12,#ffffff03);color:#e9e2d6}
+.admin-guide>strong{color:#e5c58c;font-size:14px}
+.admin-guide ol{display:flex;gap:10px 28px;flex-wrap:wrap;margin:10px 0 0;padding-left:20px;font-size:12px;color:#c7c0b4}
+body:has(#dash) .item{padding:12px;border:1px solid #ffffff12;border-radius:10px;background:#101010;min-width:0}
+body:has(#dash) .item img{width:78px;height:68px;border-radius:6px;flex:0 0 auto}
+body:has(#dash) .item .meta{min-width:0;overflow-wrap:anywhere}
+body:has(#dash) .item strong{font-size:13px}
+body:has(#dash) .item p{font-size:12px;line-height:1.5;margin:4px 0;color:#a7a39b}
+body:has(#dash) .item button,body:has(#dash) .album-admin-row button{background:#171717;border:1px solid #514a3d;color:#f4e5c6}
+body:has(#dash) .album-admin-row{grid-template-columns:120px minmax(140px,1fr) minmax(230px,1.3fr) auto auto auto;border-radius:10px;border-color:#ffffff16;background:#101010;padding:14px}
+body:has(#dash) .album-admin-cover{border-radius:7px}
+body:has(#dash) .album-admin-controls select{min-height:40px;border-radius:7px}
+body:has(#dash) hr{opacity:.5}
+body:has(#dash) #eventList,body:has(#dash) #folderAlbumFiles,body:has(#dash) #items,body:has(#dash) #experiences{display:grid;gap:8px;margin-top:16px}
+body:has(#dash) #login{max-width:620px;margin:26px auto}
+body:has(#dash) #login h2{margin-bottom:18px}
+@media(max-width:850px){body:has(#dash) .album-admin-row{grid-template-columns:88px minmax(0,1fr);gap:10px}body:has(#dash) .album-admin-controls{grid-column:1/-1;min-width:0}body:has(#dash) .album-admin-row>button{justify-self:start}body:has(#dash) .wrap{padding:0 16px}.admin-shortcuts{top:64px}}
+@media(max-width:560px){body:has(#dash) .wrap{margin-top:24px;padding:0 12px}body:has(#dash) .panel{padding:17px;margin:14px 0;border-radius:11px}body:has(#dash) .form{grid-template-columns:minmax(0,1fr)}body:has(#dash) .wide{grid-column:auto}body:has(#dash) .dashboard-heading{align-items:flex-start;gap:12px}body:has(#dash) .dashboard-heading .btn{width:auto;white-space:nowrap}.admin-guide{padding:15px}.admin-guide ol{display:block}.admin-guide li{margin:6px 0}body:has(#dash) .item{align-items:flex-start}body:has(#dash) .item button{max-width:100%;white-space:normal}body:has(#dash) .album-admin-row>button{width:100%}}
