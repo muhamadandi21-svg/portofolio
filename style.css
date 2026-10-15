@@ -250,3 +250,39 @@ body:not(:has(#dash)) ::selection{background:#c5a46d;color:#16130e}
 .admin-advanced summary{cursor:pointer;color:#e4c58c;font-weight:600;line-height:1.5;list-style-position:inside}
 .admin-advanced .form{margin-top:16px}
 .admin-advanced[open] summary{margin-bottom:4px}
+
+
+/* Interactive polish — public portfolio + admin, without changing data workflows */
+:root{--motion-ease:cubic-bezier(.2,.75,.25,1)}
+body:not(:has(#dash)) #scrollProgress{position:fixed;z-index:120;top:0;left:0;width:0;height:3px;background:linear-gradient(90deg,#c5a46d,#f0d9a7);box-shadow:0 0 14px #c5a46d66;pointer-events:none}
+body:not(:has(#dash)) #backToTop{position:fixed;z-index:80;right:22px;bottom:22px;width:46px;height:46px;border:1px solid #c5a46d88;border-radius:50%;background:#171714eF;color:#f4d9a2;font-size:20px;cursor:pointer;box-shadow:0 10px 30px #0005;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .25s,transform .25s,visibility .25s,background .25s}
+body:not(:has(#dash)) #backToTop.visible{opacity:1;visibility:visible;transform:translateY(0)}
+body:not(:has(#dash)) #backToTop:hover{background:#c5a46d;color:#15130f;transform:translateY(-3px)}
+body:not(:has(#dash)) .reveal-on-scroll{opacity:0;transform:translateY(22px);transition:opacity .65s var(--motion-ease),transform .65s var(--motion-ease)}
+body:not(:has(#dash)) .reveal-on-scroll.is-visible{opacity:1;transform:translateY(0)}
+body:not(:has(#dash)) nav a{position:relative;transition:color .2s}
+body:not(:has(#dash)) nav a:after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .25s var(--motion-ease)}
+body:not(:has(#dash)) nav a:hover:after,body:not(:has(#dash)) nav a.is-current:after{transform:scaleX(1)}
+body:not(:has(#dash)) nav a.is-current{color:#e4bd73!important}
+body:not(:has(#dash)) .filters button{border-radius:999px;transition:background .2s,color .2s,border-color .2s,transform .2s}
+body:not(:has(#dash)) .filters button:active,body:not(:has(#dash)) .event-card:active{transform:scale(.98)}
+body:not(:has(#dash)) .gallery article{border-radius:7px}
+body:not(:has(#dash)) .gallery article:after{content:"↗";position:absolute;top:13px;right:13px;width:34px;height:34px;display:grid;place-items:center;border-radius:50%;border:1px solid #ffffff88;color:white;background:#1118;opacity:0;transform:translateY(5px);transition:opacity .25s,transform .25s;pointer-events:none}
+body:not(:has(#dash)) .gallery article:hover:after{opacity:1;transform:translateY(0)}
+body:not(:has(#dash)) .event-card{border-radius:8px;box-shadow:0 8px 24px #0001;transition:transform .3s var(--motion-ease),box-shadow .3s}
+body:not(:has(#dash)) .event-card:hover{transform:translateY(-4px);box-shadow:0 16px 32px #0002}
+body:not(:has(#dash)) .btn,.contacts>a,.event-back{transition:transform .2s var(--motion-ease),background .2s,color .2s,border-color .2s}
+body:not(:has(#dash)) .btn:active{transform:scale(.98)}
+body:not(:has(#dash)) .media-modal{animation:viewerFade .2s ease-out}
+body:not(:has(#dash)) .media-modal img,body:not(:has(#dash)) .media-modal video{animation:viewerZoom .25s var(--motion-ease)}
+@keyframes viewerFade{from{opacity:0}to{opacity:1}}
+@keyframes viewerZoom{from{transform:scale(.97)}to{transform:scale(1)}}
+body:has(#dash) .panel{transition:border-color .25s,box-shadow .25s,transform .25s}
+body:has(#dash) .panel:focus-within{border-color:#c5a46d55;box-shadow:0 16px 42px #0003}
+body:has(#dash) .item,body:has(#dash) #eventList .album-admin-row{transition:transform .2s,border-color .2s,background .2s}
+body:has(#dash) .item:hover,body:has(#dash) #eventList .album-admin-row:hover{border-color:#c5a46d55;background:#151513}
+body:has(#dash) button,body:has(#dash) .btn{transition:transform .18s,background .18s,border-color .18s,color .18s}
+body:has(#dash) button:active{transform:scale(.985)}
+body:has(#dash) input:focus-visible,body:has(#dash) select:focus-visible,body:has(#dash) textarea:focus-visible{outline:2px solid #c5a46d;outline-offset:2px}
+@media(max-width:680px){body:not(:has(#dash)) #backToTop{right:14px;bottom:14px;width:42px;height:42px}body:not(:has(#dash)) .gallery article:after{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){body:not(:has(#dash)) .reveal-on-scroll{opacity:1;transform:none}body:not(:has(#dash)) #backToTop,body:not(:has(#dash)) .event-card,body:not(:has(#dash)) .gallery article:after{transition:none}}
