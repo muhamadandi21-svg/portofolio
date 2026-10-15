@@ -1,4 +1,4 @@
-<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Admin — Andi Photography</title><link rel="stylesheet" href="style.css?v=20261015-instagram"><style>.wrap{max-width:1000px;margin:45px auto;padding:0 20px}.panel{padding:24px;background:#191919;border:1px solid #333;margin:20px 0}.form{display:grid;grid-template-columns:1fr 1fr;gap:13px}.form label{font-size:12px;color:#bbb;display:flex;flex-direction:column;gap:6px}.form input,.form select,.form textarea{padding:11px;background:#101010;border:1px solid #444;color:white}.wide{grid-column:1/-1}.status{color:#c5a46d;font-size:13px;white-space:pre-wrap}.hidden{display:none!important}.item{display:flex;align-items:center;gap:12px;padding:12px;background:#111;margin:8px 0}.item img{width:65px;height:55px;object-fit:cover}.item .meta{flex:1}.item p{font-size:11px;color:#aaa}.item button{padding:8px;background:none;color:white;border:1px solid #555}.danger{border-color:#944!important}.row{display:flex;justify-content:space-between;align-items:center;gap:15px}@media(max-width:600px){.form{grid-template-columns:1fr}.wide{grid-column:auto}.row{align-items:flex-start;flex-direction:column}.item{flex-wrap:wrap}}/* Mobile admin navigation: never cover form fields while scrolling */.admin-shortcuts{position:relative!important;top:auto!important;display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;overflow:visible!important;margin:14px 0}.admin-shortcuts a{display:flex;align-items:center;justify-content:center;min-height:42px;text-align:center;white-space:normal;line-height:1.35;padding:9px 8px}.admin-shortcuts a:focus-visible{outline:2px solid #e8c98f;outline-offset:2px}@media(max-width:760px){.admin-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-shortcuts a:last-child{grid-column:1/-1}body:has(#dash) .panel{scroll-margin-top:18px}}@media(max-width:420px){.admin-shortcuts a{font-size:12px;padding:9px 6px}}/* Fix saved-work cards on narrow screens */
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Admin — Andi Photography</title><link rel="stylesheet" href="style.css?v=20261016-simpleadmin"><style>.wrap{max-width:1000px;margin:45px auto;padding:0 20px}.panel{padding:24px;background:#191919;border:1px solid #333;margin:20px 0}.form{display:grid;grid-template-columns:1fr 1fr;gap:13px}.form label{font-size:12px;color:#bbb;display:flex;flex-direction:column;gap:6px}.form input,.form select,.form textarea{padding:11px;background:#101010;border:1px solid #444;color:white}.wide{grid-column:1/-1}.status{color:#c5a46d;font-size:13px;white-space:pre-wrap}.hidden{display:none!important}.item{display:flex;align-items:center;gap:12px;padding:12px;background:#111;margin:8px 0}.item img{width:65px;height:55px;object-fit:cover}.item .meta{flex:1}.item p{font-size:11px;color:#aaa}.item button{padding:8px;background:none;color:white;border:1px solid #555}.danger{border-color:#944!important}.row{display:flex;justify-content:space-between;align-items:center;gap:15px}@media(max-width:600px){.form{grid-template-columns:1fr}.wide{grid-column:auto}.row{align-items:flex-start;flex-direction:column}.item{flex-wrap:wrap}}/* Mobile admin navigation: never cover form fields while scrolling */.admin-shortcuts{position:relative!important;top:auto!important;display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;overflow:visible!important;margin:14px 0}.admin-shortcuts a{display:flex;align-items:center;justify-content:center;min-height:42px;text-align:center;white-space:normal;line-height:1.35;padding:9px 8px}.admin-shortcuts a:focus-visible{outline:2px solid #e8c98f;outline-offset:2px}@media(max-width:760px){.admin-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-shortcuts a:last-child{grid-column:1/-1}body:has(#dash) .panel{scroll-margin-top:18px}}@media(max-width:420px){.admin-shortcuts a{font-size:12px;padding:9px 6px}}/* Fix saved-work cards on narrow screens */
 /* Album & sampul: aligned card layout across desktop and mobile */
 #eventList{display:flex;flex-direction:column;gap:12px;min-width:0}
 #eventList .album-admin-row{display:grid;grid-template-columns:104px minmax(150px,1fr) minmax(245px,310px) minmax(110px,auto);grid-template-areas:"cover info controls add" "cover info controls edit" "cover info controls delete";align-items:start;gap:10px 14px;padding:16px;margin:0;background:#111;border:1px solid #333;border-radius:12px;min-width:0}
@@ -61,6 +61,34 @@
 #eventList .cover-adjust-controls input[type=range]{width:100%;min-width:0;accent-color:#c5a46d}
 #eventList .cover-adjust-value{font-size:11px;color:#e8c98f}
 @media(max-width:760px){#eventList .cover-adjust-preview{max-width:100%}}
+</style><style>
+/* Admin mobile-first simplification */
+#dash .panel{border-radius:14px;padding:18px;margin:12px 0;scroll-margin-top:14px}
+#dash .panel>h2{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:18px;line-height:1.35;margin:0 0 14px}
+#dash .panel.admin-collapsed{padding:15px 18px}
+#dash .panel.admin-collapsed>h2{margin:0}
+#dash .panel.admin-collapsed> :not(h2){display:none!important}
+#dash .panel>h2:after{content:"−";font-size:22px;opacity:.7}
+#dash .panel.admin-collapsed>h2:after{content:"+"}
+#dash .admin-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+#dash .admin-shortcuts a{display:block;text-align:center;padding:10px 8px;border-radius:9px}
+#dash .admin-guide{font-size:13px}
+#dash .item{border-radius:10px;align-items:flex-start}
+#dash .item .meta{min-width:calc(100% - 90px)}
+#dash .item .work-actions{display:flex;gap:6px;flex-wrap:wrap}
+#dash button,#dash input,#dash select,#dash textarea{border-radius:8px}
+#dash .form{gap:12px}
+#dash .status{line-height:1.5}
+@media(max-width:600px){
+ #dash .panel{padding:14px;margin:10px 0}
+ #dash .panel.admin-collapsed{padding:13px 14px}
+ #dash .admin-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ #dash .item{gap:8px;padding:10px}
+ #dash .item img{width:58px;height:58px;border-radius:6px}
+ #dash .item select{max-width:100%!important;flex:1;min-width:130px}
+ #dash .item button{min-height:38px}
+ #dash .album-admin-row{border-radius:10px}
+}
 </style></head><body><header><a class="brand" href="index.html">A<span>.</span> ANDI PHOTOGRAPHY</a><a href="index.html">← Website publik</a></header><main class="wrap"><p class="eyebrow">PRIVATE CONTENT MANAGEMENT</p><h1>Portfolio <em style="color:#c5a46d">admin.</em></h1><p class="note">Login dengan akun admin Supabase. Jangan berikan akses akun ini kepada pengunjung.</p>
 <section id="login" class="panel"><h2>Login admin</h2><form id="loginForm" class="form"><label>Email<input id="email" type="email" required></label><label>Password<input id="password" type="password" required></label><button class="btn wide">Login ↗</button></form><p id="loginStatus" class="status"></p></section>
 <div id="dash" class="hidden"><div class="row dashboard-heading"><div><p class="eyebrow">DASHBOARD</p><h2>Kelola website</h2><p class="note">Pilih bagian yang ingin kamu ubah. Perubahan tersimpan ke website setelah tombol simpan berhasil.</p></div><button id="logout" class="btn">Keluar akun ↗</button></div><nav class="admin-shortcuts" aria-label="Navigasi admin"><a href="#admin-profile">Profil & tampilan</a><a href="#admin-experience">Pengalaman</a><a href="#admin-albums">Album & sampul</a><a href="#admin-work">Karya tersimpan</a><a href="#admin-media">Tambah foto</a></nav><section class="admin-guide"><strong>Alur paling mudah</strong><ol><li>Buat atau pilih album.</li><li>Tekan <b>Tambah foto ke album</b> untuk memasukkan foto.</li><li>Pilih foto sampul dan rasio, lalu simpan.</li><li>Buka website publik untuk mengecek hasilnya.</li></ol></section><section id="admin-profile" class="panel"><h2>01. Profil & tampilan website</h2><form id="settingsForm" class="form"><label>Nama/brand<input id="s_brand" maxlength="100" placeholder="Andi Photography"></label><label>Email<input id="s_email" type="email" placeholder="emailkamu@example.com"></label><label>WhatsApp (nomor internasional, angka saja)<input id="s_whatsapp" placeholder="6281234567890"></label><label>Instagram URL<input id="s_instagram" type="url" placeholder="https://instagram.com/username"></label><label>Link CV (URL publik)<input id="s_cv" type="url" placeholder="https://.../CV.pdf"></label><label class="wide">Deskripsi singkat / hero<input id="s_intro" maxlength="300" placeholder="Fotografer dan videografer..."></label>
@@ -159,5 +187,33 @@ async function autoSyncLists(){if(!user||document.hidden||autoSyncBusy)return;au
 setInterval(autoSyncLists,20000);
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)autoSyncLists()});
 window.addEventListener("focus",autoSyncLists);
+
+// Tampilan admin ringkas: panel bisa dilipat agar tidak perlu melewati semua form.
+const adminPanels=["admin-profile","admin-experience","admin-albums","admin-media","admin-work"]
+ .map(id=>$(id)).filter(Boolean);
+function setAdminPanelOpen(panel,open){
+ if(!panel)return;
+ panel.classList.toggle("admin-collapsed",!open);
+ const heading=panel.querySelector(":scope > h2");
+ if(heading){heading.setAttribute("role","button");heading.setAttribute("tabindex","0");heading.setAttribute("aria-expanded",String(open));}
+}
+adminPanels.forEach(panel=>{
+ const heading=panel.querySelector(":scope > h2");
+ if(!heading)return;
+ heading.style.cursor="pointer";
+ heading.title="Ketuk untuk buka/tutup bagian ini";
+ const toggle=()=>setAdminPanelOpen(panel,panel.classList.contains("admin-collapsed"));
+ heading.addEventListener("click",toggle);
+ heading.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();toggle();}});
+ setAdminPanelOpen(panel,panel.id==="admin-work");
+});
+const originalExpandWorkEdit=adminPanels.find(p=>p.id==="admin-media");
+const originalScrollIntoView=Element.prototype.scrollIntoView;
+function openAdminPanel(id){
+ const panel=$(id);if(!panel)return;
+ setAdminPanelOpen(panel,true);
+ panel.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
 refresh()})();
 </script></body></html>
