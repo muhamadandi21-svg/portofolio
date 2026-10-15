@@ -116,7 +116,7 @@ async function listEvents(){
   const coverLabel=document.createElement("label");coverLabel.textContent="Pilih foto sampul";
   const coverSelect=document.createElement("select");coverSelect.setAttribute("aria-label","Pilih sampul untuk "+x.title);
   const auto=document.createElement("option");auto.value="";auto.textContent="Otomatis / default";coverSelect.append(auto);
-  const albumPhotos=photos.filter(p=>p.event_id===x.id&&p.media_type!=="video"&&p.media_url);
+  const albumPhotos=photos.filter(p=>p.event_id===x.id&&p.media_type!=="video"&&p.media_url&&!p.media_url.includes("instagram.com/"));
   albumPhotos.forEach(photo=>{const o=document.createElement("option");o.value=photo.media_url;o.textContent=photo.title||"Foto";coverSelect.append(o)});
   if((x.title||"").trim().toUpperCase()==="ENGAGEMENT")jewerlyFolderPhotos.forEach(photo=>{if(!photos.some(p=>p.media_url===photo.url)){const o=document.createElement("option");o.value=photo.url;o.textContent=photo.name+" (Storage)";coverSelect.append(o)}});
   if(x.cover_url&&!Array.from(coverSelect.options).some(o=>o.value===x.cover_url)){const current=document.createElement("option");current.value=x.cover_url;current.textContent="Sampul URL saat ini";coverSelect.append(current)}
