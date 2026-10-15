@@ -286,3 +286,42 @@ body:has(#dash) button:active{transform:scale(.985)}
 body:has(#dash) input:focus-visible,body:has(#dash) select:focus-visible,body:has(#dash) textarea:focus-visible{outline:2px solid #c5a46d;outline-offset:2px}
 @media(max-width:680px){body:not(:has(#dash)) #backToTop{right:14px;bottom:14px;width:42px;height:42px}body:not(:has(#dash)) .gallery article:after{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){body:not(:has(#dash)) .reveal-on-scroll{opacity:1;transform:none}body:not(:has(#dash)) #backToTop,body:not(:has(#dash)) .event-card,body:not(:has(#dash)) .gallery article:after{transition:none}}
+
+
+/* Visible refresh: premium editorial surfaces and clearer interaction states */
+body:not(:has(#dash)){background:radial-gradient(ellipse at 80% 8%,#c5a46d12 0,transparent 28%),#111}
+body:not(:has(#dash)) header{box-shadow:0 8px 30px #0002}
+body:not(:has(#dash)) .hero{background:radial-gradient(ellipse at 85% 48%,#c5a46d10 0,transparent 45%)}
+body:not(:has(#dash)) .hero h1{max-width:720px}
+body:not(:has(#dash)) .heroimg{border:1px solid #c5a46d66;border-radius:4px;box-shadow:18px 18px 0 #c5a46d12,0 24px 60px #0005}
+body:not(:has(#dash)) .btn{border-radius:2px;box-shadow:0 8px 24px #c5a46d20}
+body:not(:has(#dash)) .sectionhead{position:relative;padding-bottom:20px;border-bottom:1px solid #17171718}
+body:not(:has(#dash)) .sectionhead .eyebrow{display:inline-flex;align-items:center;gap:10px}
+body:not(:has(#dash)) .sectionhead .eyebrow:before{content:"";display:inline-block;width:24px;height:1px;background:var(--gold)}
+body:not(:has(#dash)) .filters button{border-radius:3px;padding:10px 16px}
+body:not(:has(#dash)) .gallery{gap:16px}
+body:not(:has(#dash)) .gallery article{border-radius:4px;background:#222;box-shadow:0 8px 28px #0001}
+body:not(:has(#dash)) .gallery article>img,body:not(:has(#dash)) .gallery article>video{filter:saturate(.94) contrast(1.02)}
+body:not(:has(#dash)) .gallery article div{padding:24px;background:linear-gradient(180deg,transparent 25%,#000c 100%)}
+body:not(:has(#dash)) .gallery h3{letter-spacing:-.025em}
+body:not(:has(#dash)) .event-card{border:1px solid #0001;overflow:hidden}
+body:not(:has(#dash)) .event-card img{transition:transform .6s}
+body:not(:has(#dash)) .event-card:hover img{transform:scale(1.04)}
+body:not(:has(#dash)) .statement{background:radial-gradient(ellipse at 50% 0,#c5a46d12,transparent 60%),#191919;border-top:1px solid #ffffff0a;border-bottom:1px solid #ffffff0a}
+body:not(:has(#dash)) .about>img{border-radius:3px;box-shadow:-14px 14px 0 #c5a46d12}
+body:not(:has(#dash)) .skills article{border-radius:3px;background:#ffffff06}
+body:not(:has(#dash)) .contacts>a{display:flex;align-items:center;justify-content:space-between;gap:15px}
+body:not(:has(#dash)) .contacts>a:after{content:"↗";color:var(--gold);transition:transform .2s}
+body:not(:has(#dash)) .contacts>a:hover:after{transform:translate(3px,-3px)}
+body:has(#dash) .wrap{max-width:1120px}
+body:has(#dash) .panel{border-radius:10px;background:linear-gradient(145deg,#1c1c1a,#151514);border-color:#35342f;box-shadow:0 12px 36px #0002;padding:clamp(18px,3vw,28px)}
+body:has(#dash) .wrap>h1{letter-spacing:-.045em;font-size:clamp(28px,4vw,42px)}
+body:has(#dash) .wrap>h1:after{content:"";display:block;width:58px;height:3px;margin-top:12px;background:linear-gradient(90deg,#c5a46d,transparent)}
+body:has(#dash) .panel h2{letter-spacing:-.025em}
+body:has(#dash) .admin-shortcuts a{border:1px solid #c5a46d55!important;border-radius:6px!important;background:#c5a46d0b!important;transition:background .2s,transform .2s!important}
+body:has(#dash) .admin-shortcuts a:hover{background:#c5a46d22!important;transform:translateY(-2px)}
+body:has(#dash) .form input,body:has(#dash) .form select,body:has(#dash) .form textarea{border-radius:5px;min-height:42px}
+body:has(#dash) .item{border:1px solid #ffffff10;border-radius:6px}
+body:has(#dash) .item img{border-radius:4px}
+body:has(#dash) .status{padding:10px 12px;border-left:3px solid #c5a46d;background:#c5a46d0c;border-radius:0 4px 4px 0}
+@media(max-width:600px){body:not(:has(#dash)) .gallery{gap:10px}body:not(:has(#dash)) .heroimg{box-shadow:10px 10px 0 #c5a46d12,0 16px 35px #0004}body:has(#dash) .panel{padding:17px}}
