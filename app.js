@@ -4,6 +4,22 @@ $("menu").addEventListener("click",()=>{const opened=$("nav").classList.toggle("
 document.querySelectorAll("#nav a").forEach(a=>a.addEventListener("click",()=>{$("nav").classList.remove("open");$("menu").setAttribute("aria-expanded","false")}));
 function wireFilters(){document.querySelectorAll(".filters button").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filters button").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll("#gallery article").forEach(c=>c.style.display=b.dataset.filter==="all"||c.dataset.type===b.dataset.filter?"":"none")}))}
 wireFilters();
+(function enableInteractions(){
+ const progress=document.createElement("div");progress.id="scrollProgress";progress.setAttribute("aria-hidden","true");document.body.append(progress);
+ const topButton=document.createElement("button");topButton.id="backToTop";topButton.type="button";topButton.setAttribute("aria-label","Kembali ke atas");topButton.title="Kembali ke atas";topButton.textContent="↑";document.body.append(topButton);
+ topButton.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+ const updateScroll=()=>{const max=document.documentElement.scrollHeight-window.innerHeight;progress.style.width=(max>0?Math.min(100,window.scrollY/max*100):0)+"%";topButton.classList.toggle("visible",window.scrollY>420)};
+ window.addEventListener("scroll",updateScroll,{passive:true});window.addEventListener("resize",updateScroll);updateScroll();
+ const revealSelector=".hero, #work .sectionhead, #work .event-heading, #work .event-cards, #work .filters, #gallery article, .statement, .about, #experience>.eyebrow, #experience>h2, #experience .skills article, .experience-card, .contact";
+ let revealObserver=null;
+ if("IntersectionObserver" in window&&!window.matchMedia("(prefers-reduced-motion: reduce)").matches){revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("is-visible");revealObserver.unobserve(entry.target)}}),{threshold:.08,rootMargin:"0px 0px -30px 0px"})}
+ const revealNode=node=>{if(!(node instanceof Element))return;const candidates=[];if(node.matches(revealSelector))candidates.push(node);candidates.push(...node.querySelectorAll(revealSelector));candidates.forEach(el=>{if(el.classList.contains("reveal-on-scroll"))return;el.classList.add("reveal-on-scroll");if(revealObserver)revealObserver.observe(el);else el.classList.add("is-visible")})};
+ revealNode(document.querySelector("main"));
+ const main=document.querySelector("main");if(main&&"MutationObserver" in window)new MutationObserver(records=>records.forEach(record=>record.addedNodes.forEach(revealNode))).observe(main,{childList:true,subtree:true});
+ const sections=["home","work","about","experience","contact"].map(id=>document.getElementById(id)).filter(Boolean);
+ if("IntersectionObserver" in window){const navObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("is-current",a.getAttribute("href")==="#"+entry.target.id))}}),{rootMargin:"-25% 0px -60% 0px"});sections.forEach(section=>navObserver.observe(section))}
+ document.addEventListener("keydown",event=>{if(event.key==="Escape")document.querySelectorAll(".media-modal").forEach(modal=>modal.remove())});
+})();
 if(!window.supabase||!window.SUPABASE_URL||!window.SUPABASE_ANON_KEY||window.SUPABASE_URL.includes("PASTE_"))return;
 const db=window.supabase.createClient(window.SUPABASE_URL,window.SUPABASE_ANON_KEY);
 
