@@ -128,7 +128,7 @@ async function listEvents(){
   const posX=makeRange("Geser horizontal",0,100,1,x.cover_position_x??50);
   const posY=makeRange("Geser vertikal",0,100,1,x.cover_position_y??50);
   const zoom=makeRange("Zoom",1,2.5,0.05,x.cover_zoom??1);
-  const updateCoverPreview=()=>{cropImage.src=coverSelect.value||(albumPhotos[0]&&albumPhotos[0].media_url)||"";cropImage.style.objectPosition=posX.input.value+"% "+posY.input.value+"%";cropImage.style.transform="scale("+zoom.input.value+")";cropPreview.style.aspectRatio=ratio.value;posX.output.textContent=posX.input.value+"%";posY.output.textContent=posY.input.value+"%";zoom.output.textContent=Number(zoom.input.value).toFixed(2)+"×"};
+  const updateCoverPreview=()=>{cropImage.src=coverSelect.value||(albumPhotos[0]&&albumPhotos[0].media_url)||"";cropImage.style.objectPosition=posX.input.value+"% "+posY.input.value+"%";cropImage.style.scale=zoom.input.value;cropPreview.style.aspectRatio=ratio.value;posX.output.textContent=posX.input.value+"%";posY.output.textContent=posY.input.value+"%";zoom.output.textContent=Number(zoom.input.value).toFixed(2)+"×"};
   [posX.input,posY.input,zoom.input].forEach(input=>input.addEventListener("input",updateCoverPreview));
   coverSelect.addEventListener("change",updateCoverPreview);
   const ratioLabel=document.createElement("label");ratioLabel.textContent="Rasio sampul";
