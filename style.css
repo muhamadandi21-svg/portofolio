@@ -369,3 +369,21 @@ body:has(#dash) .status{padding:10px 12px;border-left:3px solid #c5a46d;backgrou
  body:not(:has(#dash)) .skills article h3{font-size:15px;margin-top:17px}
  body:not(:has(#dash)) .skills article p{font-size:11px}
 }
+
+
+/* Mobile-safe album cover editor: closed by default so scrolling won't move sliders */
+.cover-adjust-editor{margin-top:12px;border:1px solid #c5a46d55;border-radius:8px;overflow:hidden;background:#10100f}
+.cover-adjust-editor>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:50px;padding:13px 15px;color:#f3e6cc;font-size:13px;font-weight:600;cursor:pointer;touch-action:manipulation;user-select:none}
+.cover-adjust-editor>summary::-webkit-details-marker{display:none}
+.cover-adjust-editor>summary:after{content:"＋";font-size:18px;color:#c5a46d}
+.cover-adjust-editor[open]>summary:after{content:"−"}
+.cover-adjust-body{display:grid;gap:12px;padding:14px;border-top:1px solid #ffffff12}
+.cover-adjust-preview{width:100%;max-width:420px;max-height:300px;margin:0 auto;overflow:hidden;background:#242321;border-radius:6px}
+.cover-adjust-preview img{width:100%;height:100%;object-fit:cover}
+.cover-adjust-controls{display:grid;grid-template-columns:1fr;gap:14px}
+.cover-adjust-controls label{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;font-size:12px;color:#d7d3cb}
+.cover-adjust-controls input[type=range]{grid-column:1/-1;width:100%;min-height:34px;margin:0;accent-color:#c5a46d;touch-action:pan-y}
+.cover-adjust-value{font-variant-numeric:tabular-nums;color:#e4bd73}
+.cover-adjust-body>label{display:flex;flex-direction:column;gap:7px;font-size:12px;color:#d7d3cb}
+.cover-adjust-body select{width:100%;min-height:44px;padding:10px;border:1px solid #45433d;border-radius:6px;background:#1b1b19;color:#fff}
+.cover-adjust-body button{width:100%;min-height:46px;margin-top:4px;border-radius:6px;touch-action:manipulation}
