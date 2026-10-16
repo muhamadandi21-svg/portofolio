@@ -398,3 +398,9 @@ body:not(:has(#dash)) .event-card video{filter:saturate(.82);transition:transfor
 .hero.no-hero-image>div{max-width:820px}
 #about.no-about-image{grid-template-columns:minmax(0,1fr)}
 #about.no-about-image>div{grid-column:1;max-width:900px}
+
+/* Compact the portfolio heading and move the works list upward. */
+body:not(:has(#dash)) #work.section{padding-top:36px;padding-bottom:56px}
+body:not(:has(#dash)) #work .sectionhead{margin-bottom:18px;padding-bottom:12px;border-bottom:0}
+body:not(:has(#dash)) #work .sectionhead>p{margin-top:0}
+body:not(:has(#dash)) #work .event-heading{border-top:0;padding-top:0;margin:0 0 14px}
