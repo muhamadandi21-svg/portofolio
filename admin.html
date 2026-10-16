@@ -358,8 +358,10 @@ const originalExpandWorkEdit=adminPanels.find(p=>p.id==="admin-media");
 const originalScrollIntoView=Element.prototype.scrollIntoView;
 function openAdminPanel(id){
  const panel=$(id);if(!panel)return;
+ let parent=panel.parentElement;
+ while(parent){if(parent.tagName==="DETAILS")parent.open=true;parent=parent.parentElement;}
  setAdminPanelOpen(panel,true);
- panel.scrollIntoView({behavior:"smooth",block:"start"});
+ requestAnimationFrame(()=>{panel.scrollIntoView({behavior:"smooth",block:"start"});const firstField=panel.querySelector("form input:not([type=hidden]),form select,form textarea");if(firstField)firstField.focus({preventScroll:true});});
 }
 
 refresh()})();
