@@ -404,3 +404,17 @@ body:not(:has(#dash)) #work.section{padding-top:36px;padding-bottom:56px}
 body:not(:has(#dash)) #work .sectionhead{margin-bottom:18px;padding-bottom:12px;border-bottom:0}
 body:not(:has(#dash)) #work .sectionhead>p{margin-top:0}
 body:not(:has(#dash)) #work .event-heading{border-top:0;padding-top:0;margin:0 0 14px}
+
+/* Dedicated videography section: videos stay discoverable even inside albums. */
+.video-portfolio{background:#e6e2d9;color:#171717}
+.video-portfolio .sectionhead{margin-bottom:24px}
+.video-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.video-card{position:relative;min-width:0;aspect-ratio:16/9;background:#171717;overflow:hidden;cursor:pointer;border:0;padding:0;text-align:left;color:white}
+.video-card video{width:100%;height:100%;object-fit:cover;display:block;opacity:.9;transition:transform .4s,opacity .3s}
+.video-card:hover video{transform:scale(1.04);opacity:1}
+.video-card-info{position:absolute;inset:auto 0 0;padding:38px 16px 14px;background:linear-gradient(transparent,#000d);pointer-events:none}
+.video-card-info small{font-size:9px;letter-spacing:.15em;color:#e8c98f}
+.video-card-info strong{display:block;font-size:15px;line-height:1.3;margin-top:5px}
+.video-empty{font-size:13px;color:#777}
+@media(max-width:760px){.video-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.video-portfolio .sectionhead{margin-bottom:20px}}
+@media(max-width:460px){.video-gallery{grid-template-columns:1fr}.video-card{aspect-ratio:16/9}}
