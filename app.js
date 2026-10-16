@@ -12,7 +12,7 @@ wireFilters();
  window.addEventListener("scroll",updateScroll,{passive:true});window.addEventListener("resize",updateScroll);updateScroll();
  const revealSelector=".hero, #work .sectionhead, #work .event-heading, #work .event-cards, #work .filters, #gallery article, .statement, .about, #experience>.eyebrow, #experience>h2, #experience .skills article, .experience-card, .contact";
  let revealObserver=null;
- if("IntersectionObserver" in window&&!window.matchMedia("(prefers-reduced-motion: reduce)").matches){revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("is-visible");revealObserver.unobserve(entry.target)}}),{threshold:.08,rootMargin:"0px 0px -30px 0px"})}
+ if("IntersectionObserver" in window&&!window.matchMedia("(prefers-reduced-motion: reduce)").matches){revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("is-visible");revealObserver.unobserve(entry.target)}}),{threshold:0,rootMargin:"0px 0px 180px 0px"})}
  const revealNode=node=>{if(!(node instanceof Element))return;const candidates=[];if(node.matches(revealSelector))candidates.push(node);candidates.push(...node.querySelectorAll(revealSelector));candidates.forEach(el=>{if(el.classList.contains("reveal-on-scroll"))return;el.classList.add("reveal-on-scroll");if(revealObserver)revealObserver.observe(el);else el.classList.add("is-visible")})};
  revealNode(document.querySelector("main"));
  const main=document.querySelector("main");if(main&&"MutationObserver" in window)new MutationObserver(records=>records.forEach(record=>record.addedNodes.forEach(revealNode))).observe(main,{childList:true,subtree:true});
