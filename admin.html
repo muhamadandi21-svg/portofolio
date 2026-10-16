@@ -186,7 +186,7 @@ function storagePathFromUrl(value){
  const marker="/storage/v1/object/public/"+CLEANUP_BUCKET+"/";
  const i=value.indexOf(marker);
  if(i<0)return null;
- try{return decodeURIComponent(value.slice(i+marker.length).split("?")[0]).replace(/^\\/+|\\/+$/g,"")||null}catch{return null}
+ try{return decodeURIComponent(value.slice(i+marker.length).split("?")[0]).replace(/^\/+|\/+$/g,"")||null}catch{return null}
 }
 async function scanStorageTree(folder="",all=[]){
  let offset=0;
