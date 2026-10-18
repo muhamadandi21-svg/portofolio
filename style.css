@@ -24,7 +24,7 @@ footer a{color:#f0ede7!important}
 footer .brand span{color:#e4bd73!important}
 
 /* Event albums */
-.event-cards{columns:3;column-gap:14px;display:block;margin:24px 0 34px}.event-cards .event-card{display:block;width:100%;break-inside:avoid;margin:0 0 14px;vertical-align:top}
+.event-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:24px 0 34px}.event-cards .event-card{display:block;width:100%;min-width:0;margin:0;break-inside:avoid}.event-cards.masonry{display:block;columns:3;column-gap:14px}.event-cards.masonry .event-card{display:block;width:100%;margin:0 0 14px;break-inside:avoid;vertical-align:top}
 .event-card{position:relative;min-height:220px;overflow:hidden;background:#242321;border:0;padding:0;text-align:left;color:#fff;cursor:pointer}
 .event-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .45s;opacity:.88}
 .event-card:hover img{transform:scale(1.04)}
@@ -420,3 +420,5 @@ body:not(:has(#dash)) #work .event-heading{border-top:0;padding-top:0;margin:0 0
 .video-empty{font-size:13px;color:#777}
 @media(max-width:760px){.video-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.video-portfolio .sectionhead{margin-bottom:20px}}
 @media(max-width:460px){.video-gallery{grid-template-columns:1fr}.video-card{aspect-ratio:16/9}}
+
+@media(max-width:760px){.event-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.event-cards.masonry{columns:2}}@media(max-width:460px){.event-cards{grid-template-columns:1fr}.event-cards.masonry{columns:1}}
