@@ -423,10 +423,13 @@ body:not(:has(#dash)) #work .event-heading{border-top:0;padding-top:0;margin:0 0
 
 @media(max-width:760px){.event-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.event-cards.masonry{columns:2}}@media(max-width:460px){.event-cards{grid-template-columns:1fr}.event-cards.masonry{columns:1}}
 
-/* Definitive gallery layout behavior */
-#eventCards:not(.masonry){display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;align-items:stretch;gap:14px!important;columns:initial!important}
-#eventCards:not(.masonry) .event-card{height:clamp(220px,22vw,320px)!important;min-height:0!important;aspect-ratio:4/3;margin:0!important}
+/* Gallery layouts: preserve each cover's natural aspect ratio */
+#eventCards:not(.masonry){display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;align-items:start;gap:14px!important;columns:initial!important}
+#eventCards:not(.masonry) .event-card{height:auto!important;min-height:0!important;aspect-ratio:auto!important;margin:0!important;align-self:start}
+#eventCards:not(.masonry) .event-card img{position:relative!important;display:block!important;inset:auto!important;width:100%!important;height:auto!important;aspect-ratio:auto!important;object-fit:contain!important}
 #eventCards.masonry{display:block!important;columns:3!important;column-gap:14px!important}
-#eventCards.masonry .event-card{height:260px;min-height:220px;break-inside:avoid;margin:0 0 14px!important}
-@media(max-width:760px){#eventCards:not(.masonry){grid-template-columns:repeat(2,minmax(0,1fr))!important}#eventCards:not(.masonry) .event-card{height:220px!important}#eventCards.masonry{columns:2!important}}
-@media(max-width:460px){#eventCards:not(.masonry){grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}#eventCards:not(.masonry) .event-card{height:190px!important}#eventCards.masonry{columns:2!important}#eventCards.masonry .event-card{height:210px}}
+#eventCards.masonry .event-card{height:auto!important;min-height:0!important;aspect-ratio:auto!important;break-inside:avoid;margin:0 0 14px!important}
+#eventCards.masonry .event-card img{position:relative!important;display:block!important;inset:auto!important;width:100%!important;height:auto!important;aspect-ratio:auto!important;object-fit:contain!important}
+#eventCards .event-card:after{pointer-events:none}
+@media(max-width:760px){#eventCards:not(.masonry){grid-template-columns:repeat(2,minmax(0,1fr))!important}#eventCards.masonry{columns:2!important}}
+@media(max-width:460px){#eventCards:not(.masonry){grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}#eventCards.masonry{columns:2!important}}
