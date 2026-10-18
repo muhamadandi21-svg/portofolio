@@ -423,3 +423,9 @@ body:not(:has(#dash)) #work .event-heading{border-top:0;padding-top:0;margin:0 0
 
 
 
+
+/* Lightbox: always show the entire original photo without cropping */
+.media-modal{box-sizing:border-box!important;padding:56px 12px 24px!important}
+.media-modal img,.media-modal video{display:block!important;width:auto!important;height:auto!important;max-width:calc(100vw - 24px)!important;max-height:calc(100dvh - 100px)!important;object-fit:contain!important;object-position:center!important;flex:0 1 auto!important}
+@supports not (height:100dvh){.media-modal img,.media-modal video{max-height:calc(100vh - 100px)!important}}
+.media-modal button{z-index:2}
